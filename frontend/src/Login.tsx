@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import dccImage from "/dcc.jpg"; // Adjust path as needed
-import dccImageDark from "/dcc_dark.png"; // Adjust path as needed
+import dccImage from "/dcc.jpg";
+import dccImageDark from "/dcc_dark.png";
 import { useTheme } from "next-themes";
 
 export default function Login() {
