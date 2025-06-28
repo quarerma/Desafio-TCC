@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background-color: #f1f5f9;
+  --text-primary: #595959;
+  --text-secondary: #717171;
+  --border: #d1d5db;
+  --card: #ffffff;
+  --hover: #f0f2f5;
+  --selected: #e5e8ec;
+
+  --muted: #d4d4d4;
+}
+
+.dark {
+  --background-color: #09090c;
+  --text-primary: #bebec4;
+  --text-secondary: #8a8a90;
+  --border: #26262b;
+  --card: #111113;
+  --hover: #232328;
+  --muted: #2f2f34;
+  --selected: #222228;
+}
