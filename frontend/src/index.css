@@ -10,7 +10,6 @@
   --card: #ffffff;
   --hover: #f0f2f5;
   --selected: #e5e8ec;
-
   --muted: #d4d4d4;
 }
 
@@ -20,7 +19,7 @@
   --text-secondary: #8a8a90;
   --border: #26262b;
   --card: #111113;
-  --hover: #232328;
+  --hover: #3a3a44;
   --muted: #2f2f34;
   --selected: #222228;
 }
