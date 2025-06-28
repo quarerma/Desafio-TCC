@@ -63,7 +63,6 @@ export default function Login() {
             </p>
           </div>
         </div>
-        {/* Right Side - Image */}
         <div
           className="w-2/3 bg-cover bg-center"
           style={{
