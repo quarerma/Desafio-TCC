@@ -10,24 +10,22 @@ const axiosInstance = axios.create({
 export async function get(endpoint: string, options = {}) {
   return await axiosInstance.get(endpoint, {
     ...options,
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
-    },
   });
 }
 
 export async function post(endpoint: string, data = {}, options = {}) {
   return await axiosInstance.post(endpoint, data, {
     ...options,
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
-    },
   });
 }
 
 export async function getSession() {
   try {
-    return (await get("/users")).data;
+    const user_id = localStorage.getItem("user_id") || "";
+    const params = new URLSearchParams({
+      user_id,
+    });
+    return (await get("/users", { params })).data;
   } catch (error) {
     localStorage.removeItem("token");
     window.location.href = "/login";

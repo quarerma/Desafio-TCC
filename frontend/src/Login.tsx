@@ -1,76 +1,60 @@
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useTheme } from "next-themes";
 import dccImage from "/dcc.jpg";
 import dccImageDark from "/dcc_dark.png";
-import { useTheme } from "next-themes";
+import LoginForm from "./components/LoginForm";
+import SignUpForm from "./components/SignUpForm";
+import { ArrowRight, ArrowLeft } from "lucide-react";
 
 export default function Login() {
-  const navigate = useNavigate();
   const { theme } = useTheme();
-  function handleLogin() {
-    // auth logic
+  const [isSignUp, setIsSignUp] = useState(false);
 
-    // on success
-    navigate("/");
-  }
   return (
-    <div className="min-h-screen flex items-center justify-center ">
-      <div className="flex w-full min-h-screen shadow-lg rounded-lg  bg-card">
-        <div className="w-1/3 min-h-full flex border-r border-border">
-          <div className="my-auto px-8 w-full">
-            <h2 className="text-2xl font-bold mb-6 text-center">Log In</h2>
-            <form>
-              <div className="mb-4">
-                <label
-                  className="block text-sm font-medium mb-2 text-secondary"
-                  htmlFor="email"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  className="w-full p-3 rounded-md border focus:outline-none focus:ring-2 border-border bg-background text-text"
-                  placeholder="Preencha o seu e-mail"
-                />
-              </div>
-              <div className="mb-6">
-                <label
-                  className="block text-sm font-medium mb-2 text-secondary"
-                  htmlFor="password"
-                >
-                  Senha
-                </label>
-                <input
-                  type="password"
-                  id="password"
-                  className="w-full p-3 rounded-md border focus:outline-none focus:ring-2 border-border bg-background text-text"
-                  placeholder="Preencha a sua senha"
-                />
-              </div>
-              <button
-                type="button"
-                className="w-full py-3 rounded-md font-semibold transition-colors bg-selected hover:bg-background"
-                onClick={handleLogin}
-              >
-                Entrar
-              </button>
-            </form>
-            <p className="mt-4 text-sm text-center text-secondary">
-              Não tem uma conta?{" "}
-              <a href="#" className="underline text-text">
-                Cadastre-se
-              </a>
-            </p>
-          </div>
-        </div>
+    <div className="min-h-screen w-full flex items-center justify-center bg-background overflow-hidden">
+      <div className="relative h-screen flex overflow-hidden transition-transform duration-700 ease-in-out w-full">
         <div
-          className="w-2/3 bg-cover bg-center"
+          className={`h-full flex items-center justify-center  bg-card border-r border-border relative z-10 transition-all duration-700 ${
+            isSignUp ? "-translate-x-full w-0 overflow-x-hidden" : "w-1/3 "
+          }`}
+        >
+          <LoginForm setIsSignUp={setIsSignUp} />
+
+          {!isSignUp && (
+            <button
+              onClick={() => setIsSignUp(true)}
+              className="absolute top-1/2 right-[-16px] -translate-y-1/2 z-20 bg-background border border-border rounded-full p-2 shadow hover:bg-accent transition"
+            >
+              <ArrowRight />
+            </button>
+          )}
+        </div>
+
+        <div
+          className={`w-2/3 h-full  transition-all duration-700 ease-in-out `}
           style={{
             backgroundImage: `url(${
               theme === "dark" ? dccImageDark : dccImage
             })`,
           }}
         ></div>
+
+        <div
+          className={` h-full flex items-center justify-center bg-card border-l border-border relative z-10 transition-all duration-700 ${
+            isSignUp ? "w-1/3" : "translate-x-full w-0"
+          }`}
+        >
+          <SignUpForm setIsSignUp={setIsSignUp} />
+
+          {isSignUp && (
+            <button
+              onClick={() => setIsSignUp(false)}
+              className="absolute top-1/2 left-[-16px] -translate-y-1/2 z-20 bg-background border border-border rounded-full p-2 shadow hover:bg-accent transition"
+            >
+              <ArrowLeft />
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
