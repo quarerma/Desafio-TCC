@@ -12,6 +12,11 @@ export async function get(endpoint: string, options = {}) {
     ...options,
   });
 }
+export async function del(endpoint: string, options = {}) {
+  return await axiosInstance.delete(endpoint, {
+    ...options,
+  });
+}
 
 export async function post(endpoint: string, data = {}, options = {}) {
   return await axiosInstance.post(endpoint, data, {

@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import ThemeSwitch from "./ThemeSwitch";
+import { useUserSession } from "@/hooks/session";
+import { LogOut } from "lucide-react";
 
 export default function TopBar() {
   const navigate = useNavigate();
@@ -8,15 +10,20 @@ export default function TopBar() {
 
     navigate("/login");
   }
+  const { user } = useUserSession();
   return (
     <>
-      <div className="fixed w-full h-[50px] top-0 z-10 flex items-center border-b border-border justify-between bg-background p-4 shadow-md">
-        <h1>Bem-vindo ao Desafio!</h1>
-        <button onClick={handleLogout}>Logout</button>
-        <ThemeSwitch />
+      <div className=" w-full mt-[35px]  mb-[70px] top-0 z-10 flex items-center  justify-between ">
+        <h1 className="text-3xl font-bold">
+          Bem-vindo ao Desafio TCC, {user.name}!
+        </h1>
+        <div className="flex space-x-4 items-center">
+          <ThemeSwitch />
+          <button onClick={handleLogout}>
+            <LogOut />
+          </button>
+        </div>
       </div>
-      {/* Height count for overflow */}
-      <div className="h-[80px]"></div>
     </>
   );
 }

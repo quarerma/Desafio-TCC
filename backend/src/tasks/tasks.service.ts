@@ -40,7 +40,7 @@ export class TasksService {
 
     const filteredTasks = db.users.flatMap((user) => {
       const filtered = user.tasks.filter((task) => !taskIds.includes(task.id));
-      user.tasks = filtered;
+
       return filtered;
     });
 
@@ -56,6 +56,7 @@ export class TasksService {
 
     // Find user and return their tasks
     const user = db.users.find((u) => u.id === userId);
+    console.log(user?.tasks);
     return user ? user.tasks : [];
   }
 }

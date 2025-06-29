@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .input {
+    @apply w-full p-3 rounded-md border focus:outline-none focus:ring-2 border-border bg-background text-text;
+  }
+  .button {
+    @apply w-full py-3 rounded-md font-semibold transition-colors bg-selected hover:bg-background disabled:opacity-50;
+  }
+}
+
 :root {
   --background-color: #f1f5f9;
   --text-primary: #595959;
@@ -11,6 +20,7 @@
   --hover: #f0f2f5;
   --selected: #e5e8ec;
   --muted: #d4d4d4;
+  --card-secondary: #eaeaea;
 }
 
 .dark {
@@ -22,4 +32,5 @@
   --hover: #3a3a44;
   --muted: #2f2f34;
   --selected: #222228;
+  --card-secondary: #1a1a1e;
 }
