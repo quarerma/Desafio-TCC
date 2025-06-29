@@ -13,7 +13,7 @@ export default function TopBar() {
   const { user } = useUserSession();
   return (
     <>
-      <div className=" w-full mt-[35px]  mb-[70px] top-0 z-10 flex items-center  justify-between ">
+      <div className=" w-full mt-[35px]  mb-[70px] top-0 z-10 flex items-center  justify-between px-10">
         <h1 className="text-3xl font-bold">
           Bem-vindo ao Desafio TCC, {user.name}!
         </h1>
