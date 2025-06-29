@@ -50,7 +50,7 @@ const router = createBrowserRouter([
 ]);
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <ThemeProvider attribute="class" defaultTheme="dark">
-    <div className="bg-background text-text min-h-screen overflow-hidden font-semibold p-10 ">
+    <div className="bg-background text-text min-h-screen overflow-hidden font-semibold ">
       <RouterProvider router={router} />
       <Toaster />
     </div>
