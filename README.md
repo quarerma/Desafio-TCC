@@ -78,6 +78,14 @@ Usuário 2
 
 ---
 
+Funcionalidades a se notar:
+
+- Formulários com validação de dados e retorno de erros
+- Segurança básica de páginas caso usuário nao estiver feito Login
+- Tema claro e escuro
+
+---
+
 Observações
 
 - Como os dados são temporários e não há banco de dados, nenhuma informação será salva ao recarregar a página ou reiniciar o servidor.
